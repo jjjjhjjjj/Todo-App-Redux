@@ -2,7 +2,7 @@ import React, { memo, useContext } from 'react';
 import './TodoItem.css';
 import cn from 'classnames';
 import { IoIosCheckboxOutline, IoIosCheckbox, IoIosTrash } from 'react-icons/io';
-import { TodoContext } from '../../../../App';
+import TodoContext from '../../../../contexts/todo';
 
 const TodoItem = memo(({ todo }) => {
 	const todoContext = useContext(TodoContext);

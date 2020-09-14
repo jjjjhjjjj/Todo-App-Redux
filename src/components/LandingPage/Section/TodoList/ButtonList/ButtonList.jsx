@@ -1,5 +1,5 @@
 import React, { memo, useContext } from 'react';
-import { TodoContext } from '../../../../../App';
+import TodoContext from '../../../../../contexts/todo';
 import './ButtonList.css';
 
 const ButtonList = memo(() => {

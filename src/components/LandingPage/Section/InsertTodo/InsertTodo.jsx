@@ -1,5 +1,5 @@
 import React, { memo, useState, useContext } from 'react';
-import { TodoContext } from '../../../../App';
+import TodoContext from '../../../../contexts/todo';
 import './InsertTodo.css';
 
 const InsertTodo = memo(() => {

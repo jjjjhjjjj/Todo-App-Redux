@@ -1,5 +1,5 @@
 import React, { useState, useEffect, memo, useContext } from 'react';
-import { TodoContext } from '../../../../App';
+import TodoContext from '../../../../contexts/todo';
 import './TodoCount.css';
 
 const TodoCount = memo(() => {
