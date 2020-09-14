@@ -1,0 +1,17 @@
+.insert-form {
+	display: flex;
+	margin-bottom: 20px;
+}
+.insert-form .todo-input {
+	display: block;
+	margin-right: 5px;
+	padding-left: 7px;
+	width: 345px;
+	height: 50px;
+}
+
+.insert-form .todo-submit-btn {
+	display: block;
+	width: 70px;
+	height: 50px;
+}

@@ -1,0 +1,24 @@
+import React, { useState, useEffect } from 'react';
+import './TodoCount.css';
+
+const TodoCount = ({ todos }) => {
+	const [doingCnt, setDoingCnt] = useState();
+	const [completedCnt, setCompletedCnt] = useState();
+
+	const todoCount = () => {
+		setDoingCnt(todos.filter(todo => todo.checked === false).length);
+		setCompletedCnt(todos.filter(todo => todo.checked === true).length);
+	};
+
+	useEffect(() => {
+		todoCount();
+	}, [todos]);
+
+	return (
+		<p className="todo-count">
+			Doing : {doingCnt} || completed: {completedCnt}
+		</p>
+	);
+};
+
+export default TodoCount;

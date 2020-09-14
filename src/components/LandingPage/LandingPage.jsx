@@ -1,8 +1,10 @@
 import React from 'react';
-import { useEffect } from 'react';
 import { useState, useRef } from 'react';
-import InsertTodo from '../Section/InsertTodo/InsertTodo';
-import TodoList from '../Section/TodoList/TodoList';
+import InsertTodo from './Section/InsertTodo/InsertTodo';
+import TodoCount from './Section/TodoCount/TodoCount';
+import TodoList from './Section/TodoList/TodoList';
+import './LandingPage.css';
+import Header from '../Header/Header';
 
 const LandingPage = () => {
 	const [todos, setTodos] = useState([
@@ -16,12 +18,25 @@ const LandingPage = () => {
 			text: '자바스크립트 공부하기',
 			checked: false,
 		},
+		{
+			id: 3,
+			text: '책 읽기',
+			checked: true,
+		},
+		{
+			id: 4,
+			text: '게임하기',
+			checked: true,
+		},
+		{
+			id: 5,
+			text: '운동하기',
+			checked: false,
+		},
 	]);
 
-	const [doingCnt, setDoingCnt] = useState();
-	const [completedCnt, setCompletedCnt] = useState();
 	const [listType, setListType] = useState('all');
-	const todoId = useRef(3);
+	const todoId = useRef(6);
 
 	const addTodoItem = todo => {
 		const newTodo = {
@@ -31,11 +46,6 @@ const LandingPage = () => {
 		};
 
 		setTodos(todos.concat(newTodo));
-	};
-
-	const todoCount = () => {
-		setDoingCnt(todos.filter(todo => todo.checked === false).length);
-		setCompletedCnt(todos.filter(todo => todo.checked === true).length);
 	};
 
 	const changeListType = type => {
@@ -50,21 +60,11 @@ const LandingPage = () => {
 		setTodos(todos.filter(t => t.id !== id));
 	};
 
-	useEffect(() => {
-		todoCount();
-	}, [todos]);
-
 	return (
-		<>
-			<header>
-				<h1>To-Do List</h1>
-				<p>what is your One Small Step?</p>
-			</header>
+		<div className="landing">
+			<Header />
 			<InsertTodo addTodoItem={addTodoItem} />
-			{/* TodoCount */}
-			<p>
-				Doing : {doingCnt} || completed: {completedCnt}
-			</p>
+			<TodoCount todos={todos} />
 			<TodoList
 				todos={todos}
 				type={listType}
@@ -72,7 +72,7 @@ const LandingPage = () => {
 				delTodo={delTodo}
 				checkTodo={checkTodo}
 			/>
-		</>
+		</div>
 	);
 };
 

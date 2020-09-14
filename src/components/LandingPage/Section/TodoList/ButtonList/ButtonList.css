@@ -1,0 +1,17 @@
+.todo-button-list {
+	display: flex;
+	margin-bottom: 30px;
+}
+
+.todo-button-list li {
+	margin-right: 10px;
+}
+
+.todo-button-list li button {
+	padding: 3px 5px;
+	font-size: 12px;
+	cursor: pointer;
+}
+.todo-button-list li button.active {
+	background-color: #8d93ab;
+}
