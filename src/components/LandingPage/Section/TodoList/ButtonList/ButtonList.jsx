@@ -1,9 +1,13 @@
-import React, { memo } from 'react';
+import React, { memo, useContext } from 'react';
+import { TodoContext } from '../../../../../App';
 import './ButtonList.css';
 
-const ButtonList = memo(({ changeListType, type }) => {
+const ButtonList = memo(() => {
+	const todoContext = useContext(TodoContext);
+	const { listType } = todoContext.todoState;
+
 	const onClick = type => {
-		changeListType(type);
+		todoContext.todoDispatch({ type: 'CHANGE_LIST_TYPE', listType: type });
 	};
 
 	return (
@@ -12,7 +16,7 @@ const ButtonList = memo(({ changeListType, type }) => {
 				<button
 					type="button"
 					onClick={() => onClick('all')}
-					className={type === 'all' ? 'active' : ''}
+					className={listType === 'all' ? 'active' : ''}
 				>
 					|| ALL
 				</button>
@@ -21,7 +25,7 @@ const ButtonList = memo(({ changeListType, type }) => {
 				<button
 					type="button"
 					onClick={() => onClick('doing')}
-					className={type === 'doing' ? 'active' : ''}
+					className={listType === 'doing' ? 'active' : ''}
 				>
 					|| DOING
 				</button>
@@ -30,7 +34,7 @@ const ButtonList = memo(({ changeListType, type }) => {
 				<button
 					type="button"
 					onClick={() => onClick('completed')}
-					className={type === 'completed' ? 'active' : ''}
+					className={listType === 'completed' ? 'active' : ''}
 				>
 					|| COMPLETED
 				</button>

@@ -1,7 +1,10 @@
-import React, { useState, useEffect, memo } from 'react';
+import React, { useState, useEffect, memo, useContext } from 'react';
+import { TodoContext } from '../../../../App';
 import './TodoCount.css';
 
-const TodoCount = memo(({ todos }) => {
+const TodoCount = memo(() => {
+	const todoContext = useContext(TodoContext);
+	const { todos } = todoContext.todoState;
 	const [doingCnt, setDoingCnt] = useState();
 	const [completedCnt, setCompletedCnt] = useState();
 
