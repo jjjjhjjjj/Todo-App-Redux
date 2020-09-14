@@ -1,8 +1,7 @@
-import React from 'react';
-import { useState } from 'react';
+import React, { memo, useState } from 'react';
 import './InsertTodo.css';
 
-const InsertTodo = ({ addTodoItem }) => {
+const InsertTodo = memo(({ addTodoItem }) => {
 	const [todoText, setTodoText] = useState('');
 
 	const onChange = e => {
@@ -30,6 +29,6 @@ const InsertTodo = ({ addTodoItem }) => {
 			</button>
 		</form>
 	);
-};
+});
 
 export default InsertTodo;

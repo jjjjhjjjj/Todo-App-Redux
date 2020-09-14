@@ -1,9 +1,9 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './TodoItem.css';
 import cn from 'classnames';
 import { IoIosCheckboxOutline, IoIosCheckbox, IoIosTrash } from 'react-icons/io';
 
-const TodoItem = ({ todo, delTodo, checkTodo }) => {
+const TodoItem = memo(({ todo, delTodo, checkTodo }) => {
 	const { checked } = todo;
 	return (
 		<li className="todo-item">
@@ -19,6 +19,6 @@ const TodoItem = ({ todo, delTodo, checkTodo }) => {
 			</div>
 		</li>
 	);
-};
+});
 
 export default TodoItem;

@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, memo } from 'react';
 import './TodoCount.css';
 
-const TodoCount = ({ todos }) => {
+const TodoCount = memo(({ todos }) => {
 	const [doingCnt, setDoingCnt] = useState();
 	const [completedCnt, setCompletedCnt] = useState();
 
@@ -19,6 +19,6 @@ const TodoCount = ({ todos }) => {
 			Doing : {doingCnt} || completed: {completedCnt}
 		</p>
 	);
-};
+});
 
 export default TodoCount;

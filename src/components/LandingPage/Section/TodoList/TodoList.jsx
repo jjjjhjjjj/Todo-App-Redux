@@ -1,11 +1,9 @@
-import React from 'react';
-import { useState } from 'react';
-import { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef, memo } from 'react';
 import TodoItem from '../TodoItem/TodoItem';
 import ButtonList from './ButtonList/ButtonList';
 import './TodoList.css';
 
-const TodoList = ({ type, todos, changeListType, delTodo, checkTodo }) => {
+const TodoList = memo(({ type, todos, changeListType, delTodo, checkTodo }) => {
 	const [typeTodos, setTypeTodos] = useState([]);
 	const _typeMessage = useRef('');
 
@@ -33,6 +31,6 @@ const TodoList = ({ type, todos, changeListType, delTodo, checkTodo }) => {
 			</ul>
 		</div>
 	);
-};
+});
 
 export default TodoList;

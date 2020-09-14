@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { memo } from 'react';
 import './ButtonList.css';
 
-const ButtonList = ({ changeListType, type }) => {
+const ButtonList = memo(({ changeListType, type }) => {
 	const onClick = type => {
 		changeListType(type);
 	};
@@ -9,7 +9,11 @@ const ButtonList = ({ changeListType, type }) => {
 	return (
 		<ul className="todo-button-list">
 			<li>
-				<button type="button" onClick={() => onClick('all')} className={type === 'all' && 'active'}>
+				<button
+					type="button"
+					onClick={() => onClick('all')}
+					className={type === 'all' ? 'active' : ''}
+				>
 					|| ALL
 				</button>
 			</li>
@@ -17,7 +21,7 @@ const ButtonList = ({ changeListType, type }) => {
 				<button
 					type="button"
 					onClick={() => onClick('doing')}
-					className={type === 'doing' && 'active'}
+					className={type === 'doing' ? 'active' : ''}
 				>
 					|| DOING
 				</button>
@@ -26,13 +30,13 @@ const ButtonList = ({ changeListType, type }) => {
 				<button
 					type="button"
 					onClick={() => onClick('completed')}
-					className={type === 'completed' && 'active'}
+					className={type === 'completed' ? 'active' : ''}
 				>
 					|| COMPLETED
 				</button>
 			</li>
 		</ul>
 	);
-};
+});
 
 export default ButtonList;
