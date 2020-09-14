@@ -5,13 +5,12 @@
 }
 body {
 	margin: 0 auto;
-	max-width: 500px;
-
+	max-width: 800px;
 	line-height: 1;
 	font-family: 'Noto Sans KR', sans-serif;
 	font-weight: 400;
 	color: #333333;
-	font-size: 14px;
+	font-size: 22px;
 }
 
 ol,
@@ -22,7 +21,8 @@ ul {
 button {
 	border: 0px;
 }
+
 .landing {
-	padding: 35px 40px 50px;
+	padding: 45px 50px 50px;
 	background-color: #d6e0f0;
 }

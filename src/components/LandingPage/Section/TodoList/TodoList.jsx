@@ -11,7 +11,7 @@ const TodoList = ({ type, todos, changeListType, delTodo, checkTodo }) => {
 
 	useEffect(() => {
 		if (type === 'doing') {
-			_typeMessage.current = 'CHeer Up !';
+			_typeMessage.current = 'Cheer Up !';
 			setTypeTodos(todos.filter(todo => todo.checked === false));
 		} else if (type === 'completed') {
 			_typeMessage.current = 'Congratulations !';
