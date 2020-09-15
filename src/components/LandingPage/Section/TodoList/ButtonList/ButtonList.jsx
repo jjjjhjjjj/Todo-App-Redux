@@ -1,13 +1,9 @@
-import React, { memo, useContext } from 'react';
-import TodoContext from '../../../../../contexts/todo';
+import React, { memo } from 'react';
 import './ButtonList.css';
 
-const ButtonList = memo(() => {
-	const todoContext = useContext(TodoContext);
-	const { listType } = todoContext.todoState;
-
+const ButtonList = memo(({ listType, changeListType }) => {
 	const onClick = type => {
-		todoContext.todoDispatch({ type: 'CHANGE_LIST_TYPE', listType: type });
+		changeListType(type);
 	};
 
 	return (

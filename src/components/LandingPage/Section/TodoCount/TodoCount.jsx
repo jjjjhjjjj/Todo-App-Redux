@@ -1,21 +1,19 @@
-import React, { useState, useEffect, memo, useContext } from 'react';
-import TodoContext from '../../../../contexts/todo';
+import React, { useState, useEffect, memo } from 'react';
+import { useCallback } from 'react';
 import './TodoCount.css';
 
-const TodoCount = memo(() => {
-	const todoContext = useContext(TodoContext);
-	const { todos } = todoContext.todoState;
+const TodoCount = memo(({ todos }) => {
 	const [doingCnt, setDoingCnt] = useState();
 	const [completedCnt, setCompletedCnt] = useState();
 
-	const todoCount = () => {
+	const todoCount = useCallback(() => {
 		setDoingCnt(todos.filter(todo => todo.checked === false).length);
 		setCompletedCnt(todos.filter(todo => todo.checked === true).length);
-	};
+	}, [todos]);
 
 	useEffect(() => {
 		todoCount();
-	}, [todos]);
+	}, [todoCount]);
 
 	return (
 		<p className="todo-count">

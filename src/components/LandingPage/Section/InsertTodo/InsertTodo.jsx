@@ -1,9 +1,7 @@
-import React, { memo, useState, useContext } from 'react';
-import TodoContext from '../../../../contexts/todo';
+import React, { memo, useState } from 'react';
 import './InsertTodo.css';
 
-const InsertTodo = memo(() => {
-	const todoContext = useContext(TodoContext);
+const InsertTodo = memo(({ addTodo }) => {
 	const [todoText, setTodoText] = useState('');
 
 	const onChange = e => {
@@ -13,7 +11,7 @@ const InsertTodo = memo(() => {
 
 	const onSubmit = e => {
 		e.preventDefault();
-		todoContext.todoDispatch({ type: 'ADD_TODO', text: todoText });
+		addTodo(todoText);
 		setTodoText('');
 	};
 

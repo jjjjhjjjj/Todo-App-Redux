@@ -1,13 +1,9 @@
-import React, { useState, useEffect, useRef, memo, useContext } from 'react';
-import TodoContext from '../../../../contexts/todo';
-import TodoItem from '../TodoItem/TodoItem';
-import ButtonList from './ButtonList/ButtonList';
+import React, { useState, useEffect, useRef, memo } from 'react';
+import ButtonListContainer from '../../../../containers/ButtonListContainer';
+import TodoItemContainer from '../../../../containers/TodoItemContainer';
 import './TodoList.css';
 
-const TodoList = memo(() => {
-	const todoContext = useContext(TodoContext);
-	const { listType, todos } = todoContext.todoState;
-
+const TodoList = memo(({ listType, todos }) => {
 	const [typeTodos, setTypeTodos] = useState([]);
 	const _typeMessage = useRef('');
 
@@ -26,11 +22,11 @@ const TodoList = memo(() => {
 
 	return (
 		<div>
-			<ButtonList />
+			<ButtonListContainer />
 			<h2 className="list-title">{_typeMessage.current}</h2>
 			<ul>
 				{typeTodos.map(todo => (
-					<TodoItem key={todo.id} todo={todo} />
+					<TodoItemContainer key={todo.id} todo={todo} />
 				))}
 			</ul>
 		</div>
