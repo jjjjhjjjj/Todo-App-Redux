@@ -1,6 +1,5 @@
 import React, { useState, useEffect, useRef, memo, useContext } from 'react';
 import TodoContext from '../../../../contexts/todo';
-
 import TodoItem from '../TodoItem/TodoItem';
 import ButtonList from './ButtonList/ButtonList';
 import './TodoList.css';
