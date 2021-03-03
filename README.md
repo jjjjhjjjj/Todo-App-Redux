@@ -11,7 +11,7 @@
 
 - 메인 화면  
 ![메인](./img/todo.png)
-    - 기존 [todo](https://github.com/jjjjhjjjj/Todo-App)와 기능 동일
+    - 기존 [Todo](https://github.com/jjjjhjjjj/Todo-App)와 기능 동일
     - Redux를 사용한 상태 관리
 
 #### [DEMO LINK](https://michelle-todo.herokuapp.com/)
